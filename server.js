@@ -22,8 +22,8 @@ const OPENWEATHERMAP_API_KEY = process.env.OPENWEATHERMAP_API_KEY;
 
 app.get('/api/hello', async (req, res) => {
   const name = req.query.name || 'Guest';
-  // const userIp = req.header['x-forwarded-for'] || req.connection.remoteAddress;
-  const userIp = "102.88.84.80";
+  const userIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  // const userIp = "102.88.84.80";
   // console.log(userIp);
 
   try {
