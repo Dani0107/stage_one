@@ -40,13 +40,11 @@ app.get('/api/hello', async (req, res) => {
 
     // console.log(`Temperature: ${temperature}`);
 
-      const response {
+      res.json({
         user_ip: userIp,
         location: location,
         greeting: `Hello, ${name}!, the temperature is ${temperature} degrees Celsius in ${location}`
-      };
-
-      res.json(response);
+      });
   } catch (error) {
     // console.error(`Error: $error.message`);
     // if (error.response) {
