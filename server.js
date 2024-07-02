@@ -21,7 +21,7 @@ const IPINFO_API_KEY = process.env.IPINFO_API_KEY;
 const OPENWEATHERMAP_API_KEY = process.env.OPENWEATHERMAP_API_KEY;
 
 app.get('/api/hello', async (req, res) => {
-  const name = req.query.name || 'Guest';
+  const name = req.query.visitor_name || 'Mark';
   const userIp = (req.headers['x-forwarded-for'] || '').split(',').shift() || req.connection.remoteAddress;
   // const userIp = "102.88.84.80";
   // console.log(userIp);
@@ -41,7 +41,7 @@ app.get('/api/hello', async (req, res) => {
     // console.log(`Temperature: ${temperature}`);
 
       res.json({
-        user_ip: userIp,
+        client_ip: userIp,
         location: location,
         greeting: `Hello, ${name}!, the temperature is ${temperature} degrees Celsius in ${location}`
       });
